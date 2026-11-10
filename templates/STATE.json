@@ -1,0 +1,16 @@
+{
+  "property": "<domain>",
+  "updated_at": "<ISO timestamp>",
+  "conversion": { "event": "<event name>", "locked_at": "<date>" },
+  "search_console_28d": {
+    "as_of": "<date>",
+    "source": "<path to the export>",
+    "clicks": null,
+    "impressions": null,
+    "position": null
+  },
+  "active_weekly_change": { "week_of": "<date>", "pick": "<one change>", "pr": null, "status": "picked | in_review | waiting_yes | live | parked" },
+  "open_defects": [
+    { "id": "D1", "found": "<date>", "what": "<one line>", "evidence": "<path or URL>", "owner": "<seat>" }
+  ]
+}
