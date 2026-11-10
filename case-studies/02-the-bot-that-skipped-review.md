@@ -18,19 +18,26 @@ This was not one of the fleet's seats. It was a GitHub Actions workflow from May
 
 The researcher seat flagged it as defect D1 in its weekly review on 2026-11-10. It found a page claim with no source behind it. The lead then traced the commit, the workflow, the prompt, the missing CI and the live page, and wrote a fix plan. Nothing was reverted or changed without my yes.
 
-## The fix plan
+## The fix: free, no paid plan
+
+Branch protection on a private personal repo needs a paid GitHub plan. I said no to that and used three free gates in its place:
+
+1. **The bot works like every other builder.** The workflow writes to a dated `bot/` branch and opens a draft PR. It no longer pushes to `main`. Its token is limited to what that needs: write the branch and open the PR.
+2. **CI on every PR.** A test workflow runs the full suite and the protected-prose check on every pull request and every push to `main`.
+3. **The deploy refuses drift.** The protected-prose check also runs in the build. If copy changes without a matching baseline update, the production build fails, even if something reaches `main`.
+
+Around those gates:
 
 | # | Change | Why |
 |---|---|---|
 | 1 | Disable the workflow before its next Sunday run | Stop new writes first |
 | 2 | One-file PR removing the FAQ, keeping the data reports | Undo only the bad part |
-| 3 | The bot writes to a branch and opens a draft PR | Same gate as every seat |
-| 4 | Branch protection on main (paid plan, about $4/month) | Make the gate enforceable, not polite |
-| 5 | A test workflow on every PR and push, and the prose test in the build | A deploy fails if protected copy drifts |
-| 6 | A citation gate: every generated answer carries a source URL and a quote that is checked live; no named-provider pricing or superlatives without one | Fix the root cause in the prompt |
-| 7 | Fix the stats crash | A red run should mean something |
+| 3 | A citation gate: every generated answer carries a source URL and a quote that is checked live; no named-provider pricing or superlatives without one | Fix the root cause in the prompt |
+| 4 | Fix the stats crash | A red run should mean something |
 
-As of 2026-11-10 I approved the paid plan for branch protection. The rest is in progress through the same per-PR gate.
+Every one of these goes through the same per-PR yes as the rest of the fleet. As of 2026-11-10 they are planned and in progress, not done.
+
+What this does not do: on a free private repo, nothing in GitHub hard-blocks a direct push to `main` by someone with write access. The gates make a bad change fail CI and fail the build, and the bot no longer has a reason to push there. I judged that enough for a one-person business. At a company I would pay for the hard block.
 
 ## What I took from it
 

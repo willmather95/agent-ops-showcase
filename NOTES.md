@@ -13,6 +13,9 @@ Every fact in this repo comes from a working file in my private operations repo 
 | 71 of 73 calculator URLs thin; five-PR plan; 38-redirect PR approved at its head commit | Builder prompt and HSA LOG | 2026-10-08 to 2026-10-09 |
 | The Sunday FAQ workflow, its prompt, missing CI, unprotected main, red-after-push run | 2026-11-10 review of the HSA bot and data load; defect D1 in the weekly review | 2026-11-08 to 2026-11-10 |
 | Branch protection needs a paid plan on a private personal repo | GitHub API answer (403, "Upgrade to GitHub Pro or make this repository public") | 2026-11-10 |
+| Free fix instead of a paid plan; fixes planned, not done | Owner decision (declined the paid plan) and the 2026-11-10 fix plan | 2026-11-10 |
+| Day-job numbers: 95%+ adoption, ~90% weekly active, 200+ trained, 200+ agents, 75% less manual processing, 25% scope expansion at renewal, 174-row report rebuilt, AI readiness interviews and value governance | My resume (2026 edition) | 2026 |
+| Dollar caps: $10/month and $3/run per site (template default), $1 per row-judging run | seo-research-openseo site template; jev-seo-campaign cost-log example | October 2026 |
 | Data loader environment lost in a restore; no log on the missed night; unpinned rebuild; small-site freshness false alarm | 2026-11-10 review, part B | 2026-11-07 to 2026-11-10 |
 | Routines and cadences | Routine audit and routine scripts README | 2026-11-04 |
 
