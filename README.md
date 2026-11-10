@@ -29,7 +29,7 @@ Prompts, logs, customer data and business numbers stay private. Everything here 
 
 **Adoption.** At my day job I drove company-wide AI adoption to 95%+, with about 90% active weekly, and trained 200+ employees and clients. Training aimed at judgment, not usage counts: when AI is the right tool, and whether a workflow pays for itself in business value, token cost, team capacity and the human review it still needs. Before any build, I interview senior leaders, score AI maturity by function, and turn the gaps into a ranked list of agents and workflows.
 
-**Review gates.** Agents propose, people approve. In my own fleet a standing "you may ship" grant lasted one day (2026-10-06 to 10-07). Since then, every merge or deploy needs a yes on that pull request at that commit, after a fixed checklist runs against the preview. When an older automation slipped past the gate, the fix was a gate it couldn't skip: draft PRs only, CI on every PR, and a build that fails on unreviewed copy ([case study 2](case-studies/02-the-bot-that-skipped-review.md)).
+**Review gates.** Agents propose, people approve. In my own fleet a standing "you may ship" grant lasted one day (2026-10-06 to 10-07). Since then, every merge or deploy needs a yes on that pull request at that commit, after a fixed checklist runs against the preview. When an older automation slipped past the gate, the fix took away its write access: it now proposes edits as an artifact and an issue with sources, a person or seat opens the PR, and CI runs on every PR ([case study 2](case-studies/02-the-bot-that-skipped-review.md)).
 
 **Measuring usage.** A weekly scorecard counts tasks finished with a production receipt, errors caught in review vs. errors that reached production, and usage-limit hits from every routine's run history. Hours saved only appear when a baseline exists; otherwise the line says "not measured yet". Paid tools run under a dollar cap set in code (for example $10 a month and $3 a run per site for SEO data) with a cost log. When routines hit the usage limit on four days in under four weeks, I cut the fleet to fewer seats instead of buying more ([case study 3](case-studies/03-seat-consolidation.md)).
 
@@ -41,7 +41,7 @@ Prompts, logs, customer data and business numbers stay private. Everything here 
 |---|---|
 | [Architecture](docs/architecture.md) | Roles, handoff files, the ship gate, review loops, routines and memory |
 | [HSA Trackr weekly SEO loop](case-studies/01-hsa-trackr-weekly-loop.md) | A programmatic SEO site run by a four-role agent team, one verified change a week |
-| [The bot that skipped review](case-studies/02-the-bot-that-skipped-review.md) | An older automation pushed an unsourced FAQ to production. Cause, catch and a free fix |
+| [The bot that skipped review](case-studies/02-the-bot-that-skipped-review.md) | An older automation pushed an unsourced FAQ to production. Cause, catch, and a free fix that takes away the bot's write access |
 | [Cutting the fleet down](case-studies/03-seat-consolidation.md) | From about 19 seats around one person to two teams with 5 active seats, nothing deleted |
 | [The nightly data load that went quiet](case-studies/04-nightly-data-load.md) | A silent failure in the analytics loader and the rules it produced |
 | [Templates](templates/) | Blank BRIEF, STATE, LOG, MISTAKES, failure checklist and cloud-agent prompt |

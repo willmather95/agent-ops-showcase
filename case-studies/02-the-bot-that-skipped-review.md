@@ -16,28 +16,24 @@ This was not one of the fleet's seats. It was a GitHub Actions workflow from May
 
 ## How it was caught
 
-The researcher seat flagged it as defect D1 in its weekly review on 2026-11-10. It found a page claim with no source behind it. The lead then traced the commit, the workflow, the prompt, the missing CI and the live page, and wrote a fix plan. Nothing was reverted or changed without my yes.
+The researcher seat flagged it as defect D1 in its weekly review on 2026-11-10. It found a page claim with no source behind it. The lead then traced the commit, the workflow, the prompt, the missing CI and the live page, and wrote a fix plan.
 
 ## The fix: free, no paid plan
 
-Branch protection on a private personal repo needs a paid GitHub plan. I said no to that and used three free gates in its place:
+Branch protection on a private personal repo needs a paid GitHub plan. I said no to that. The researcher seat that owns the fix picked a stricter design instead: the bot loses write access entirely.
 
-1. **The bot works like every other builder.** The workflow writes to a dated `bot/` branch and opens a draft PR. It no longer pushes to `main`. Its token is limited to what that needs: write the branch and open the PR.
-2. **CI on every PR.** A test workflow runs the full suite and the protected-prose check on every pull request and every push to `main`.
-3. **The deploy refuses drift.** The protected-prose check also runs in the build. If copy changes without a matching baseline update, the production build fails, even if something reaches `main`.
+- **The bot can't write to the repo.** Its token is `contents: read`, with write only on issues and pull requests. It can't push any branch.
+- **It proposes instead.** Each run uploads its suggested edits as a downloadable workflow artifact and opens an issue that summarizes them, with sources. A person or a seat turns that into a real PR.
+- **CI on every PR, drafts included,** plus the protected-prose check.
 
-Around those gates:
+| Step | Status (2026-11-10) |
+|---|---|
+| Disable the workflow | Done, 3:50 PM CT |
+| Remove the FAQ | PR waiting for my yes |
+| Read-only bot with artifact + issue | PR waiting for my yes |
+| CI on every PR plus the prose check | PR waiting for my yes |
 
-| # | Change | Why |
-|---|---|---|
-| 1 | Disable the workflow before its next Sunday run | Stop new writes first |
-| 2 | One-file PR removing the FAQ, keeping the data reports | Undo only the bad part |
-| 3 | A citation gate: every generated answer carries a source URL and a quote that is checked live; no named-provider pricing or superlatives without one | Fix the root cause in the prompt |
-| 4 | Fix the stats crash | A red run should mean something |
-
-Every one of these goes through the same per-PR yes as the rest of the fleet. As of 2026-11-10 they are planned and in progress, not done.
-
-What this does not do: on a free private repo, nothing in GitHub hard-blocks a direct push to `main` by someone with write access. The gates make a bad change fail CI and fail the build, and the bot no longer has a reason to push there. I judged that enough for a one-person business. At a company I would pay for the hard block.
+What this does not do: `main` still has no protection against a direct push from my own login. Without the paid plan, that gap stays, and the gate depends on me using PRs like everyone else.
 
 ## What I took from it
 
