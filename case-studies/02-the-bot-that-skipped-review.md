@@ -22,7 +22,7 @@ The researcher seat flagged it as defect D1 in its weekly review on 2026-11-10. 
 
 Branch protection on a private personal repo needs a paid GitHub plan. I said no to that. The researcher seat that owns the fix picked a stricter design instead: the bot loses write access entirely.
 
-- **The bot can't write to the repo.** Its token is `contents: read`, with write only on issues and pull requests. It can't push any branch.
+- **The bot loses write access to the repo (draft PR, awaiting my yes as of Nov 10).** Its token becomes `contents: read`, with write only on issues and pull requests, so it can't push any branch.
 - **It proposes instead.** Each run uploads its suggested edits as a downloadable workflow artifact and opens an issue that summarizes them, with sources. A person or a seat turns that into a real PR.
 - **CI on every PR, drafts included,** plus the protected-prose check.
 
