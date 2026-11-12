@@ -73,14 +73,14 @@ flowchart TD
 |---|---|---|
 | Weekly SEO loop | Monday morning, per property | Runs the loop above |
 | Daily check | Weekday mornings | Watches only. Never starts a second change |
-| Routine healthcheck | Monday | Audits every bot's routines for waste, then sends the scorecard ([skill](https://github.com/willmather95/agent-ops-skills/tree/main/skills/routine-healthcheck)) |
-| Transcript healthcheck | Weekday mornings | Mines transcripts for repeated corrections; silent when clean ([skill](https://github.com/willmather95/agent-ops-skills/tree/main/skills/transcript-healthcheck)) |
+| Routine healthcheck | Monday | Audits every bot's routines for waste, then sends the scorecard |
+| Transcript healthcheck | Weekday mornings | Mines transcripts for repeated corrections; silent when clean |
 | Nightly data load | Monday and Thursday overnight | Loads Search Console data for four properties into a local DuckDB file, then checks freshness ([case study 4](../case-studies/04-nightly-data-load.md)) |
-| Overnight watch | Per long job | A morning check-in that resumes or reports a cut-off run ([skill](https://github.com/willmather95/agent-ops-skills/tree/main/skills/overnight-watch)) |
+| Overnight watch | Per long job | A morning check-in that resumes or reports a cut-off run |
 
 ## Memory
 
-All bots share one private Git repo of Markdown notes. Each bot reads the index and the few notes a task needs, then writes one short note to `inbox/` when it finishes. Commits name files by explicit path, never `git add -A`. The skill is public as [vault-memory](https://github.com/willmather95/vault-memory).
+All bots share one private Git repo of Markdown notes. Each bot reads the index and the few notes a task needs, then writes one short note to `inbox/` when it finishes. Commits name files by explicit path, never `git add -A`.
 
 ## Tooling around the fleet
 

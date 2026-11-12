@@ -41,4 +41,4 @@ The Monday routine reads the mistakes file, the brief, the state file and the la
 
 ## Not shown
 
-Traffic numbers, signups, partner terms and the repo itself stay private. The public spin-off from this build is [emdash-hsa-limits](https://github.com/mavericksolutions7/emdash-hsa-limits), a sourced IRS limits plugin.
+Traffic numbers, signups, partner terms and the repo itself stay private.
